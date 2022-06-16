@@ -4,9 +4,13 @@
     DOCKERHUB_CREDENTIALS=credentials('dockerhub-pavan')
   }
   agent any
+  triggers {
+    pollSCM 'H/2 * * * *'
+  }
   tools {
     maven 'maven-3.6.3' 
   }
+  
   stages {
     stage('Cloning Git') {
       steps {
